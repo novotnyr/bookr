@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface BookDao {
     List<Book> list();
-    
+
     Book findById(Long id);
 
     public void saveOrUpdate(Book book);
@@ -13,6 +13,6 @@ public interface BookDao {
     public List<Book> searchByTitle(String title);
 
     public void delete(Book book);
-    
+
     List<Book> findByPublisher(Publisher publisher);
 }

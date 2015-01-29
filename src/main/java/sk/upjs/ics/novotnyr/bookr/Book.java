@@ -1,17 +1,22 @@
 package sk.upjs.ics.novotnyr.bookr;
 
 import java.io.File;
+import java.util.List;
 
 public class Book {
+    private CommentDao commentDao = BeanFactory.INSTANCE.commentDao();
+
     private Long id;
-    
+
     private String title;
-    
+
     private File path;
-    
+
     private Publisher publisher;
-    
+
     private int year;
+
+    private int rating;
 
     public Long getId() {
         return id;
@@ -52,6 +57,18 @@ public class Book {
     public void setYear(int year) {
         this.year = year;
     }
-    
-    
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        // nastavuje ho BookRowMapper!
+        this.rating = rating;
+    }
+
+    public List<Comment> getComments() {
+        return commentDao.list(this);
+    }
+
 }

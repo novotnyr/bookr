@@ -1,13 +1,14 @@
 package sk.upjs.ics.novotnyr.bookr.dao;
 
+import org.springframework.jdbc.core.RowMapper;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import org.springframework.jdbc.core.RowMapper;
 
 public class BookCoverRowMapper implements RowMapper<ImageIcon> {
 

@@ -1,10 +1,6 @@
 package sk.upjs.ics.novotnyr.bookr;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -12,6 +8,10 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import sk.upjs.ics.novotnyr.bookr.dao.BookRowMapper;
 import sk.upjs.ics.novotnyr.bookr.dao.SqlQueries;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class HsqlBookDao implements BookDao {
@@ -42,7 +42,7 @@ public class HsqlBookDao implements BookDao {
 
     @Override
     public void saveOrUpdate(Book book) {
-        if(book.getId() == null) {
+        if (book.getId() == null) {
             save(book);
         } else {
             update(book);
@@ -56,14 +56,14 @@ public class HsqlBookDao implements BookDao {
         insertMap.put("path", "file://null");
         insertMap.put("publisher_id", book.getPublisher().getId());
         insertMap.put("year", book.getYear());
-        
+
         String sql = "INSERT INTO book VALUES(:id, :title, :path, :publisher_id, :year)";
-        
+
         KeyHolder keyHolder = new GeneratedKeyHolder();
         namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(insertMap), keyHolder);
         Long id = keyHolder.getKey().longValue();
         book.setId(id);
-        
+
     }
 
     private void update(Book book) {
@@ -72,9 +72,9 @@ public class HsqlBookDao implements BookDao {
         updateMap.put("title", book.getTitle());
         updateMap.put("publisher_id", book.getPublisher().getId());
         updateMap.put("year", book.getYear());
-        
+
         String sql = "UPDATE book SET title = :title, publisher_id = :publisher_id, year = :year WHERE id = :id";
-        
+
         namedParameterJdbcTemplate.update(sql, updateMap);
     }
 
@@ -91,8 +91,8 @@ public class HsqlBookDao implements BookDao {
 
     @Override
     public List<Book> findByPublisher(Publisher publisher) {
-        return jdbcTemplate.query(SqlQueries.SELECT_BOOK_BY_PUBLISHER, bookRowMapper, publisher.getId());        
+        return jdbcTemplate.query(SqlQueries.SELECT_BOOK_BY_PUBLISHER, bookRowMapper, publisher.getId());
     }
-    
+
 
 }

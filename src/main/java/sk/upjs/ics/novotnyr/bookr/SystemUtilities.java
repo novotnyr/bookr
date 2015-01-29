@@ -11,12 +11,12 @@ public class SystemUtilities {
         String operatingSystem = System.getProperty("os.name").toLowerCase();
         return operatingSystem.contains("win");
     }
-    
+
     public byte[] load(File file) throws FileNotFoundException, IOException {
         RandomAccessFile fileReader = new RandomAccessFile(file, "r");
         byte[] buffer = new byte[(int) fileReader.length()];
         fileReader.readFully(buffer);
-        
+
         return buffer;
     }
 }

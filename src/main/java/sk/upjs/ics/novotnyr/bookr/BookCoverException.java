@@ -1,7 +1,7 @@
 package sk.upjs.ics.novotnyr.bookr;
 
 
-public class BookCoverException extends RuntimeException{
+public class BookCoverException extends RuntimeException {
 
     public BookCoverException() {
     }
@@ -17,5 +17,5 @@ public class BookCoverException extends RuntimeException{
     public BookCoverException(Throwable cause) {
         super(cause);
     }
-    
+
 }
