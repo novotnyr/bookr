@@ -187,7 +187,6 @@ public class BookDashboardForm extends JFrame {
 
     private void menuBookAddActionPerformed(java.awt.event.ActionEvent evt) {                                            
         BookEditForm editForm = new BookEditForm(this);
-        editForm.setLocationByPlatform(true);
         editForm.setVisible(true);
         
         refreshBookData();
