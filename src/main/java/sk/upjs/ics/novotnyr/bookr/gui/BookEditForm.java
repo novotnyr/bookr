@@ -74,7 +74,7 @@ public class BookEditForm extends JDialog {
     }
         
     public BookEditForm(Frame owner, Book book) {
-        super(owner, "Publishers", /* modal*/ true);
+        super(owner, "Book", /* modal*/ true);
         
         this.book = book;
         
