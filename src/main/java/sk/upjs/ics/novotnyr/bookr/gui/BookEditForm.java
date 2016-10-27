@@ -74,7 +74,8 @@ public class BookEditForm extends JDialog {
     }
         
     public BookEditForm(Frame owner, Book book) {
-        super(owner, "Book", /* modal*/ true);
+        super(owner, "Book", /* modal*/ true);        
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         this.book = book;
         

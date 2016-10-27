@@ -47,6 +47,7 @@ public class PublisherDashboardForm extends JDialog {
     
     public PublisherDashboardForm(Frame owner) {
         super(owner, "Publisher Overview", /* modal */ true);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         setLayout(new MigLayout("wrap 3", "[grow, fill][][]", "[][][nogrid]"));
         

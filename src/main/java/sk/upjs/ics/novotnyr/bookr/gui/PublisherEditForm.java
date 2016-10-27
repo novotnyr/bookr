@@ -34,6 +34,7 @@ public class PublisherEditForm extends JDialog {
    
     public PublisherEditForm(Frame owner) {
         super(owner, "Publisher", /* modal*/ true);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         setLayout(new MigLayout("wrap 2", "[][grow, fill, 50:200:]", "[][][nogrid]"));
         
